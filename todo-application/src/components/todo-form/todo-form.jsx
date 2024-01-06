@@ -7,7 +7,9 @@ export const TodoForm = () => {
   const [task, setTask] = React.useState('');
 
   const handleAddTodo = () => {
-    // handle add todo here
+      addTodo(task);
+      setTask('');
+    
   };
 
   const handleKeyUp = (e) => {

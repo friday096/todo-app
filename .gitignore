@@ -43,3 +43,8 @@
 /var/package/*
 !/var/package/*.xml
 
+# Ignore node_modules in todo-api
+/todo-api/node_modules/
+
+# Ignore node_modules in todo-frontend
+/todo-application/node_modules/

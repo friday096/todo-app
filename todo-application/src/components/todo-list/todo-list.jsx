@@ -5,15 +5,17 @@ import { useTodos, useDeleteTodo } from '../../hooks/todos';
 import './todo-list.scss';
 
 export const TodoList = () => {
-  const { todos, setTodos } = React.useContext(todoApiContext);
+  const { todos, setTodos, delTodo, togTodo } = React.useContext(todoApiContext);
   const { todoList, error } = useTodos();
 
   const handleDelete = async (id) => {
-    // handle delete todo
+    console.log('handleDelete', id)
+    delTodo(id)
   };
 
   const toggleCheck = async (id) => {
-    // Write the code to toggle the check here
+    console.log('toggleCheck', id)
+    togTodo(id)
   };
 
   const handleKeyUp = (e, id) => {
@@ -29,12 +31,12 @@ export const TodoList = () => {
         <div className="todo-list-content">
           {todos.map((todoItem) => (
             <Checkbox
-              key={todoItem.id}
-              label={todoItem.label}
-              checked={todoItem.checked}
-              onClick={() => toggleCheck(todoItem.id)}
-              onKeyUp={(e) => handleKeyUp(e, todoItem.id)}
-              onDelete={() => handleDelete(todoItem.id)}
+              key={todoItem._id}
+              label={todoItem.task}
+              checked={todoItem.status}
+              onClick={() => toggleCheck(todoItem._id)}
+              onKeyUp={(e) => handleKeyUp(e, todoItem._id)}
+              onDelete={() => handleDelete(todoItem._id)}
             />
           ))}
         </div>

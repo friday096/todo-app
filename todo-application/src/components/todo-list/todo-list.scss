@@ -1,27 +1,22 @@
 .todo-list {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(1,1,1,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left side) */
 
-  &-title {
-    font-weight: 500;
+  .todo-list-title {
     font-size: 18px;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    border-bottom: 1px solid rgba(1,1,1,0.1);
-    padding: 5px 0;
+    font-weight: bold;
     margin-bottom: 10px;
   }
 
-  &-content {
+  .todo-list-content {
+    width: 100%; /* Ensure the content takes up the full width */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Display items in a column */
+    gap: 10px; /* Add some spacing between items */
   }
-}
 
-.no-todos {
-  text-align: center;
-  padding: 5px 0;
-  font-size: 14px;
-  color: gray;
+  .no-todos {
+    margin-top: 10px;
+  }
 }

@@ -1,8 +1,15 @@
-var express = require("express");
-var router = express.Router();
+import express from 'express';
+import { postController } from '../controller/todoController.js';
 
-router.get("/", function (req, res, next) {
-  res.send({ status: "Api is working" });
+const router = express.Router();
+
+router.get('/', (req, res, next) => {
+  res.send({ status: 'API is working' });
 });
 
-module.exports = router;
+router.post('/create', postController.createPost);
+router.get('/get', postController.getPosts);
+router.delete('/delete/:id', postController.deletePost);
+router.put('/toggle/:id', postController.togglePost);
+
+export default router;
